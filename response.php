@@ -64,8 +64,8 @@
     }
     $comment = $_POST["comment"];
     echo "評論:{$comment}";
-
-
+    
+    echo  "<script>alert('感謝填寫')</script>";
     // echo "興趣:";
     // foreach($hobbys as $hobby){
     //     echo "{$hobby},";

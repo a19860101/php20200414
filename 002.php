@@ -18,8 +18,8 @@
         // echo '<h1>$name</h1>';
 
         //常數
-        define("WEB_URL","https://www.qqq.com");
-        define("WEB_TITLE","巨匠電腦");
+        define("URL","https://www.qqq.com");
+        define("TITLE","巨匠電腦");
         echo TITLE;
 
     ?>
