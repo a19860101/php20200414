@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <form action="" method="post">
+                <form action="store_student.php" method="post">
                     <div class="form-group">
                         <label for="name">姓名</label>
                         <input type="text" id="name" name="name" class="form-control">
