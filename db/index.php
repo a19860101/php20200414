@@ -6,20 +6,65 @@
 
     // $conn = @mysqli_connect($db_host,$db_user,$db_pw,$db_name)or die("資料庫連線錯誤");
     $conn = mysqli_connect($db_host,$db_user,$db_pw,$db_name)or die("資料庫連線錯誤");
+    //設定編碼
+    mysqli_query($conn,"SET NAMES utf8");
 
     $sql = "SELECT * FROM students";
     $result = mysqli_query($conn,$sql);
+    // $row = mysqli_fetch_assoc($result);
+    // // var_dump($result);
+    // var_dump($row);
+    // echo "<br>";
+    // $row = mysqli_fetch_assoc($result);
+    // var_dump($row);
+    // echo "<br>";
+    // $row = mysqli_fetch_assoc($result);
+    // var_dump($row);
 
-    var_dump($result);
-?>
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
 </head>
 <body>
-    <h1>title</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>title</h1>
+                <a href="create_student.php" class="btn btn-primary">新增資料</a>
+                <table class="table">
+                    <tr>
+                        <th>#</th>
+                        <th>姓名</th>
+                        <th>Mail</th>
+                        <th>電話</th>
+                    </tr>
+                <?php while($row = mysqli_fetch_assoc($result)){ ?>
+                    <tr>
+                        <td><?php echo $row["id"];?></td>
+                        <td><?php echo $row["name"];?></td>
+                        <td><?php echo $row["mail"];?></td>
+                        <td><?php echo $row["phone"];?></td>
+                    </tr>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+    <?php
+        // while($row = mysqli_fetch_assoc($result)){
+        //     echo "<tr>";
+        //     echo "<td>".$row["id"]."</td>";
+        //     echo "<td>".$row["name"]."</td>";
+        //     echo "<td>".$row["mail"]."</td>";
+        //     echo "<td>".$row["phone"]."</td>";
+        //     echo "</tr>";
+        // }
+    ?>
+    </table>
 </body>
 </html>
