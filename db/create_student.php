@@ -24,7 +24,7 @@
                         <label for="mail">Mail</label>
                         <input type="text" id="mail" name="mail" class="form-control">
                     </div>
-                    <input type="submit" class="btn btn-primary" value="新增">
+                    <input type="submit" class="btn btn-primary" value="新增" onclick="alert('test')">
                     <input type="button" class="btn btn-danger" value="取消">
                 </form>
             </div>
