@@ -42,7 +42,7 @@
                         <td><?php echo $row["name"];?></td>
                         <td><?php echo $row["mail"];?></td>
                         <td><?php echo $row["phone"];?></td>
-                        <td><a href="delete_student.php?id=<?php echo $row["id"];?>" class="btn btn-danger">刪除</a></td>
+                        <td><a href="delete_student.php?id=<?php echo $row["id"];?>" class="btn btn-danger" onclick="return confirm('確認刪除?')">刪除</a></td>
                     </tr>
                 <?php } ?>
             </div>
