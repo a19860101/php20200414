@@ -34,6 +34,7 @@
                         <th>姓名</th>
                         <th>Mail</th>
                         <th>電話</th>
+                        <th></th>
                     </tr>
                 <?php while($row = mysqli_fetch_assoc($result)){ ?>
                     <tr>
@@ -41,6 +42,7 @@
                         <td><?php echo $row["name"];?></td>
                         <td><?php echo $row["mail"];?></td>
                         <td><?php echo $row["phone"];?></td>
+                        <td><a href="delete_student.php?id=<?php echo $row["id"];?>" class="btn btn-danger">刪除</a></td>
                     </tr>
                 <?php } ?>
             </div>

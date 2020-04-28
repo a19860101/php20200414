@@ -25,7 +25,8 @@
                         <input type="text" id="mail" name="mail" class="form-control">
                     </div>
                     <input type="submit" class="btn btn-primary" value="新增" onclick="alert('test')">
-                    <input type="button" class="btn btn-danger" value="取消">
+                    <!-- <input type="button" class="btn btn-danger" value="取消" onclick="history.back()"> -->
+                    <input type="button" class="btn btn-danger" value="取消" onclick="location.href='index.php'">
                 </form>
             </div>
         </div>
