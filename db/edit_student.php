@@ -55,16 +55,17 @@
                     </div>
                     <div class="form-group">
                         <div>專長</div>
+                        <?php $skills = explode(",",$row["skills"]);?>
                         <div class="form-check form-check-inline">
-                            <input type="checkbox" class="form-check-input" name="skills[]" id="graphic" value="平面設計">
+                            <input type="checkbox" class="form-check-input" name="skills[]" id="graphic" value="平面設計" <?php echo in_array("平面設計",$skills)?"checked":"";?>>
                             <label for="graphic" class="form-check-label">平面設計</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="checkbox" class="form-check-input" name="skills[]" id="web" value="網頁設計">
+                            <input type="checkbox" class="form-check-input" name="skills[]" id="web" value="網頁設計" <?php echo in_array("網頁設計",$skills)?"checked":"";?>>
                             <label for="web" class="form-check-label">網頁設計</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="checkbox" class="form-check-input" name="skills[]" id="threeD" value="3D設計">
+                            <input type="checkbox" class="form-check-input" name="skills[]" id="threeD" value="3D設計" <?php echo in_array("3D設計",$skills)?"checked":"";?>>
                             <label for="threeD" class="form-check-label">3D設計</label>
                         </div>
                         
