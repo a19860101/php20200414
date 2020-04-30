@@ -34,6 +34,9 @@
                         <th>姓名</th>
                         <th>Mail</th>
                         <th>電話</th>
+                        <th>性別</th>
+                        <th>教育程度</th>
+                        <th>專長</th>
                         <th></th>
                     </tr>
                 <?php while($row = mysqli_fetch_assoc($result)){ ?>
@@ -46,6 +49,9 @@
                         </td>
                         <td><?php echo $row["mail"];?></td>
                         <td><?php echo $row["phone"];?></td>
+                        <td><?php echo $row["gender"];?></td>
+                        <td><?php echo $row["edu"];?></td>
+                        <td><?php echo $row["skills"];?></td>
                         <td>
                             <a href="delete_student.php?id=<?php echo $row["id"];?>" class="btn btn-danger" onclick="return confirm('確認刪除?')">刪除</a>
                             <a href="edit_student.php?id=<?php echo $row["id"];?>" class="btn btn-info">修改</a>
