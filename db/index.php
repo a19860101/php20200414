@@ -39,10 +39,17 @@
                 <?php while($row = mysqli_fetch_assoc($result)){ ?>
                     <tr>
                         <td><?php echo $row["id"];?></td>
-                        <td><?php echo $row["name"];?></td>
+                        <td>
+                            <a href="detail_student.php?id=<?php echo $row["id"];?>">
+                                <?php echo $row["name"];?>
+                            </a>
+                        </td>
                         <td><?php echo $row["mail"];?></td>
                         <td><?php echo $row["phone"];?></td>
-                        <td><a href="delete_student.php?id=<?php echo $row["id"];?>" class="btn btn-danger" onclick="return confirm('確認刪除?')">刪除</a></td>
+                        <td>
+                            <a href="delete_student.php?id=<?php echo $row["id"];?>" class="btn btn-danger" onclick="return confirm('確認刪除?')">刪除</a>
+                            <a href="edit_student.php?id=<?php echo $row["id"];?>" class="btn btn-info">修改</a>
+                        </td>
                     </tr>
                 <?php } ?>
             </div>
