@@ -31,6 +31,44 @@
                         <label for="mail">Mail</label>
                         <input type="text" id="mail" name="mail" class="form-control" value="<?php echo $row["mail"];?>">
                     </div>
+                    <div class="form-group">
+                        <label for="edu">學歷</label>
+                        <select name="edu" id="edu" class="form-control">
+                            <option value="">請選擇</option>
+                            <option value="國小">國小</option>
+                            <option value="國中">國中</option>
+                            <option value="高中職">高中職</option>
+                            <option value="大專院校">大專院校</option>
+                            <option value="研究所以上">研究所以上</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div>性別</div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="gender" id="male" value="男" >
+                            <label for="male" class="form-check-label">男性</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="gender" id="female" value="女" checked>
+                            <label for="female" class="form-check-label">女性</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>專長</div>
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" name="skills[]" id="graphic" value="平面設計">
+                            <label for="graphic" class="form-check-label">平面設計</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" name="skills[]" id="web" value="網頁設計">
+                            <label for="web" class="form-check-label">網頁設計</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" name="skills[]" id="threeD" value="3D設計">
+                            <label for="threeD" class="form-check-label">3D設計</label>
+                        </div>
+                        
+                    </div>
                     <input type="hidden" name="id" value="<?php echo $row["id"];?>">
                     <input type="submit" class="btn btn-primary" value="修改">
                     <!-- <input type="button" class="btn btn-danger" value="取消" onclick="history.back()"> -->
