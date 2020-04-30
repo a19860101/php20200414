@@ -35,21 +35,21 @@
                         <label for="edu">學歷</label>
                         <select name="edu" id="edu" class="form-control">
                             <option value="">請選擇</option>
-                            <option value="國小">國小</option>
-                            <option value="國中">國中</option>
-                            <option value="高中職">高中職</option>
-                            <option value="大專院校">大專院校</option>
-                            <option value="研究所以上">研究所以上</option>
+                            <option value="國小"<?php echo $row["edu"]=="國小"? "selected":"";?>>國小</option>
+                            <option value="國中"<?php echo $row["edu"]=="國中"? "selected":"";?>>國中</option>
+                            <option value="高中職"<?php echo $row["edu"]=="高中職"? "selected":"";?>>高中職</option>
+                            <option value="大專院校"<?php echo $row["edu"]=="大專院校"? "selected":"";?>>大專院校</option>
+                            <option value="研究所以上"<?php echo $row["edu"]=="研究所以上"? "selected":"";?>>研究所以上</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <div>性別</div>
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="gender" id="male" value="男" >
+                            <input type="radio" class="form-check-input" name="gender" id="male" value="男" <?php echo $row["gender"]=="男"? "checked":"";?>>
                             <label for="male" class="form-check-label">男性</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="gender" id="female" value="女" checked>
+                            <input type="radio" class="form-check-input" name="gender" id="female" value="女" <?php echo $row["gender"]=="女"? "checked":"";?>>
                             <label for="female" class="form-check-label">女性</label>
                         </div>
                     </div>
