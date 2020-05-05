@@ -29,6 +29,7 @@
         <div class="row">
             <div class="col-12">
                 <h1>學生資料</h1>
+                <a href="create_student.php">新增資料</a>
                 <table class="table">
                 <?php foreach($row_array as $row){?>
                     <tr>
