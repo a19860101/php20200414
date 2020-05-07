@@ -23,6 +23,8 @@
     </form>
     <br>
     <br>
+    <a href="?new=true">新增檔案</a>
+    <br>
     <br>
     <table>
     <?php while($file = readdir($dir)){ ?>
@@ -40,6 +42,11 @@
         if(isset($_GET["del"])){
             unlink($_GET["del"]);
             header("location:index.php");
+        }
+        if(isset($_GET["new"])){
+            $name = md5(uniqid());
+            touch("images/{$name}.txt");
+            header("location:index.php?");
         }
     ?>
 </body>
