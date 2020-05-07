@@ -1,14 +1,7 @@
 <?php
-    try {
-        require_once("pdo.php");
-        $id = $_GET["id"];
-        $sql = "SELECT * FROM students WHERE id = ?";
-        $stmt = $pdo->prepare($sql); 
-        $stmt->execute([$id]);
-        $row = $stmt->fetch();
-    }catch(PDOException $e){
-        echo $e->getMessage();
-    }
+    include("function.php");
+    $id = $_GET["id"];
+    $row = show($id);
 ?>
 <!DOCTYPE html>
 <html lang="en">
