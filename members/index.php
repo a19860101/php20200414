@@ -12,11 +12,12 @@
     <nav>
         <?php if($_SESSION){ ?>
         
+        <a href="member.php">會員專區</a>
         <a href="logout.php">登出</a>
         
         <?php }else{ ?>
 
-        <a href="#">註冊</a>
+        <a href="signup.php">註冊</a>
         <a href="login.php">登入</a>
 
         <?php } ?>
