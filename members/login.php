@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="auth.php" method="post">
         <div>
             <label for="user">帳號</label>
             <input type="text" name="user" id="user">
