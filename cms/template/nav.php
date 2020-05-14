@@ -26,6 +26,9 @@
         <a class="nav-link" href="#">登入</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="create-post.php">新增文章</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="#">會員專區</a>
       </li>
       <li class="nav-item">
