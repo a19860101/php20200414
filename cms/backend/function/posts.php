@@ -16,19 +16,18 @@
             echo $e->getMessage();
         }
     }
-    // function show($id){
-    //     try {
-    //         require_once("pdo.php");
-    //         // $id = $_GET["id"];
-    //         $sql = "SELECT * FROM students WHERE id = ?";
-    //         $stmt = $pdo->prepare($sql); 
-    //         $stmt->execute([$id]);
-    //         $row = $stmt->fetch();
-    //         return $row;
-    //     }catch(PDOException $e){
-    //         echo $e->getMessage();
-    //     }
-    // }
+    function showPost($id){
+        try {
+            global $pdo;
+            $sql = "SELECT * FROM posts WHERE id = ?";
+            $stmt = $pdo->prepare($sql); 
+            $stmt->execute([$id]);
+            $row = $stmt->fetch();
+            return $row;
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
     function storePost($title,$content){
         try{
             global $pdo;

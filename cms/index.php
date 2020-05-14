@@ -15,7 +15,10 @@
                 <?php echo mb_substr($row["content"],0,120,"utf-8");?>...
             </div>
             <div class="text-right">
-                <a href="#">繼續閱讀</a>
+                <a href="post.php?id=<?php echo $row["id"];?>">繼續閱讀</a>
+            </div>
+            <div>
+                作者:<?php echo $row["user_id"];?>
             </div>
             <div class="mt-3">
                 發布時間: <?php echo $row["create_at"]; ?>
