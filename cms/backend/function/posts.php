@@ -32,10 +32,11 @@
     function storePost($title,$content){
         try{
             global $pdo;
-            $sql = "INSERT INTO posts(title,content,create_at,update_at)VALUES(?,?,?,?)";
+            $sql = "INSERT INTO posts(title,content,create_at,update_at,cover)VALUES(?,?,?,?,?)";
             $stmt = $pdo->prepare($sql);
             $create_at = date("Y-m-d H:i:s");
-            $stmt->execute([$title,$content,$create_at,$create_at]);
+            $cover = 0;
+            $stmt->execute([$title,$content,$create_at,$create_at,$cover]);
         }catch(PDOException $e){
             echo $e->getMessage();
         }
