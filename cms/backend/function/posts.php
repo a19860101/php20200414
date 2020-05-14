@@ -1,10 +1,10 @@
 <?php
     date_default_timezone_set("Asia/Taipei");
     
-    function showAll(){
+    function showAllPosts(){
         try {
-            require_once('../pdo.php');
-            $sql = "SELECT * FROM students";
+            global $pdo;
+            $sql = "SELECT * FROM posts";
             $stmt = $pdo -> prepare($sql);
             $stmt -> execute(); 
             $row_array = array();
