@@ -1,5 +1,6 @@
 <?php
     date_default_timezone_set("Asia/Taipei");
+    
     function showAll(){
         try {
             require_once('../pdo.php');
@@ -30,7 +31,7 @@
     // }
     function storePost($title,$content){
         try{
-            require_once("backend/pdo.php");
+            global $pdo;
             $sql = "INSERT INTO posts(title,content,create_at,update_at)VALUES(?,?,?,?)";
             $stmt = $pdo->prepare($sql);
             $create_at = date("Y-m-d H:i:s");
