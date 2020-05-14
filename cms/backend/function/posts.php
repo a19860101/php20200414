@@ -1,10 +1,10 @@
 <?php
     date_default_timezone_set("Asia/Taipei");
     
-    function showAllPosts(){
+    function showAllPosts($order="DESC"){
         try {
             global $pdo;
-            $sql = "SELECT * FROM posts";
+            $sql = "SELECT * FROM posts ORDER BY id {$order}";
             $stmt = $pdo -> prepare($sql);
             $stmt -> execute(); 
             $row_array = array();

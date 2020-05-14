@@ -6,16 +6,20 @@
 <?php include("template/header.php"); ?>
 <?php include("template/nav.php"); ?>
 
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <?php foreach($rows as $row){ ?>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <?php foreach($rows as $row){ ?>
+        <div class="col-8 py-2">
             <h3><?php echo $row["title"];?></h3>
             <div class="content">
                 <?php echo $row["content"];?>
             </div>
-            <?php } ?>
+            <div class="mt-3">
+                發布時間: <?php echo $row["create_at"]; ?>
+            </div>
+            <hr>
         </div>
+        <?php } ?>
     </div>
 </div>
 
