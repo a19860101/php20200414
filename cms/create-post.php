@@ -14,6 +14,7 @@
                     <textarea name="content" id="content" class="form-control" rows="10"></textarea>
                 </div>
                 <input type="submit" value="新增文章" class="btn btn-primary">
+                <input type="button" value="取消" class="btn btn-danger" onclick="history.back()">
             </form>
         </div>
     </div>

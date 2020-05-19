@@ -20,6 +20,7 @@
                 </div>
                 <input type="hidden" name="id" value="<?php echo $row["id"];?>">
                 <input type="submit" value="修改文章" class="btn btn-primary">
+                <input type="button" value="取消" class="btn btn-danger" onclick="history.back()">
             </form>
         </div>
     </div>
