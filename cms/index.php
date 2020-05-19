@@ -11,6 +11,9 @@
         <?php foreach($rows as $row){ ?>
         <div class="col-8 py-2">
             <h3><?php echo $row["title"];?></h3>
+            <div>
+                分類:<?php echo $row["c_title"];?>
+            </div>
             <div class="content">
                 <?php echo mb_substr($row["content"],0,120,"utf-8");?>...
             </div>

@@ -4,7 +4,8 @@
     function showAllPosts($order="DESC"){
         try {
             global $pdo;
-            $sql = "SELECT * FROM posts ORDER BY id {$order}";
+            // $sql = "SELECT * FROM posts ORDER BY id {$order}";
+            $sql = "SELECT posts.*,category.title AS c_title,category.slug FROM posts LEFT JOIN category ON posts.cate_id = category.id";
             $stmt = $pdo -> prepare($sql);
             $stmt -> execute(); 
             $row_array = array();
