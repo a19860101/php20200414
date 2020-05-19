@@ -50,24 +50,22 @@
             echo $e->getMessage();
         }
     }
-    // function update($name,$phone,$mail,$edu,$gender,$skills,$id){
-    //     try{
-    //         require_once("pdo.php");
-    //         $sql = "UPDATE 
-    //         students 
-    //     SET 
-    //         name    = ?,
-    //         phone   = ?,
-    //         mail    = ?,
-    //         edu     = ?,
-    //         gender  = ?,
-    //         skills  = ? 
-    //     WHERE 
-    //         id      = ?";
-    //     $stmt = $pdo->prepare($sql);
-    //     $stmt->execute([$name,$phone,$mail,$edu,$gender,$skills,$id]);
-    //     }catch(PDOException $e){
-    //         echo $e->getMessage();
-    //     }
+    function updatePost($title,$content){
+        try{
+            global $pdo;
+            $update_at = date("Y-m-d H:i:s");            
+            $sql = "UPDATE 
+            posts 
+        SET 
+            title       = ?,
+            content     = ?,
+            update_at   = ?
+        WHERE 
+            id      = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$title,$content,$update_at]);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
 
-    // }
+    }
