@@ -16,7 +16,7 @@
       </li>
       <?php foreach($rows_c as $row_c){ ?>
       <li class="nav-item">
-        <a class="nav-link" href="#"><?php echo $row_c["title"];?></a>
+        <a class="nav-link" href="category.php?id=<?php echo $row_c["id"];?>"><?php echo $row_c["title"];?></a>
       </li>
       <?php }?>
     </ul>

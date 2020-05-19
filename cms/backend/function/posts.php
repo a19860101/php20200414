@@ -17,6 +17,26 @@
             echo $e->getMessage();
         }
     }
+    function showAllCatePosts($cate_id,$order="DESC"){
+        try {
+            global $pdo;
+            // $sql = "SELECT * FROM posts ORDER BY id {$order}";
+            $sql = "SELECT posts.*,category.title AS c_title,category.slug 
+                    FROM posts 
+                    LEFT JOIN category ON posts.cate_id = category.id 
+                    WHERE posts.cate_id = ?
+                    ORDER BY id {$order}";
+            $stmt = $pdo -> prepare($sql);
+            $stmt -> execute([$cate_id]); 
+            $row_array = array();
+            while($rows = $stmt -> fetch()){
+                $row_array[] = $rows;
+            }
+            return $row_array;
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
     function showPost($id){
         try {
             global $pdo;
