@@ -9,6 +9,9 @@
     <div class="row justify-content-center">
         <div class="col-10 py-3">
             <h2><?php echo $row["title"];?></h2>
+            <div>
+                分類:<?php echo $row["c_title"];?>
+            </div>
             <div class="content py-5">
                 <?php echo $row["content"]?>
             </div>
