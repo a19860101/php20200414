@@ -24,11 +24,16 @@
       <?php }?>
     </ul>
     <ul class="navbar-nav ml-auto">
+    <?php if(!$_SESSION){ ?>
       <li class="nav-item active">
         <a class="nav-link" href="#">註冊</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="login.php">登入</a>
+      </li>
+    <?php }else{ ?>
+      <li class="nav-item">
+        <a href="#" class="nav-link"><?php echo $_SESSION["USER"];?>你好!</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="create-post.php">新增文章</a>
@@ -37,8 +42,9 @@
         <a class="nav-link" href="#">會員專區</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">登出</a>
+        <a class="nav-link" href="logout.php?logout=true">登出</a>
       </li>
+    <?php } ?>
     </ul>
   </div>
 </nav>

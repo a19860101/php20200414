@@ -5,11 +5,6 @@
 ?>
 <?php include("template/header.php"); ?>
 <?php include("template/nav.php"); ?>
-<?php
-    if($_SESSION){
-        echo $_SESSION["USER"];
-    }
-?>
 <div class="container py-5">
     <div class="row justify-content-center">
         <?php foreach($rows as $row){ ?>
