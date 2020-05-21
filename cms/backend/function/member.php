@@ -1,4 +1,5 @@
 <?php
+    date_default_timezone_set("Asia/Taipei");
     function auth($user,$pw){
         try{
             global $pdo;
@@ -17,6 +18,17 @@
             }
     
             // var_dump($row);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+    function storeMember($user,$pw){
+        try {
+            global $pdo;
+            $create_at = date("Y-m-d H:i:s");
+            $sql = "INSERT INTO members (user,pw,create_at,update_at)VALUES(?,?,?,?)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$user,$pw,$create_at,$create_at]);
         }catch(PDOException $e){
             echo $e->getMessage();
         }
