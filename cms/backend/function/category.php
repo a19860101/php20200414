@@ -39,16 +39,16 @@
             echo $e->getMessage();
         }
     }
-    // function deletePost($id){
-    //     try {
-    //         global $pdo;
-    //         $sql = "DELETE FROM posts WHERE id = ?";
-    //         $stmt = $pdo->prepare($sql);
-    //         $stmt->execute([$id]);
-    //     }catch(PDOException $e){
-    //         echo $e->getMessage();
-    //     }
-    // }
+    function deleteCate($id){
+        try {
+            global $pdo;
+            $sql = "DELETE FROM category WHERE id = ?";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$id]);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
     // function updatePost($title,$content,$id){
     //     try{
     //         global $pdo;
