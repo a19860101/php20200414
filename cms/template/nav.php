@@ -14,6 +14,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="index.php">首頁 <span class="sr-only">(current)</span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="category-list.php">分類管理</a>
+      </li>
       <?php foreach($rows_c as $row_c){ ?>
       <li class="nav-item">
         <a class="nav-link" href="category.php?id=<?php echo $row_c["id"];?>"><?php echo $row_c["title"];?></a>
