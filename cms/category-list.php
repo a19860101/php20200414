@@ -3,6 +3,7 @@
 ?>
 <?php include("template/header.php");?>
 <?php include("template/nav.php");?>
+
 <div class="container py-5">
     <div class="row">
         <div class="col-8">
@@ -35,14 +36,15 @@
 </div>
 <?php include("template/footer.php");?>
 <?php
+    if(isset($_POST["delete"])){
+        $id = $_POST["id"];
+        deleteCate($id);
+        echo "<script>window.location.href='category-list.php'</script>";
+    }
     if(isset($_POST["submit"])){
         $title = $_POST["title"];
         $slug = $_POST["slug"];
         storeCate($title,$slug);
-        header("Location:category-list.php");
-    }
-    if(isset($_POST["delete"])){
-        $id = $_POST["id"];
-        deleteCate($id);
+        echo "<script>window.location.href='category-list.php'</script>";
     }
 ?>
