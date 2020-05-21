@@ -71,7 +71,7 @@
             echo $e->getMessage();
         }
     }
-    function updatePost($title,$content,$id){
+    function updatePost($title,$content,$cate_id,$id){
         try{
             global $pdo;
             $update_at = date("Y-m-d H:i:s");            
@@ -80,11 +80,12 @@
         SET 
             title       = ?,
             content     = ?,
+            cate_id     = ?,
             update_at   = ?
         WHERE 
             id      = ?";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute([$title,$content,$update_at,$id]);
+        $stmt->execute([$title,$content,$cate_id,$update_at,$id]);
         }catch(PDOException $e){
             echo $e->getMessage();
         }
