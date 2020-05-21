@@ -28,18 +28,17 @@
     //         echo $e->getMessage();
     //     }
     // }
-    // function storePost($title,$content){
-    //     try{
-    //         global $pdo;
-    //         $sql = "INSERT INTO posts(title,content,create_at,update_at,cover)VALUES(?,?,?,?,?)";
-    //         $stmt = $pdo->prepare($sql);
-    //         $create_at = date("Y-m-d H:i:s");
-    //         $cover = 0;
-    //         $stmt->execute([$title,$content,$create_at,$create_at,$cover]);
-    //     }catch(PDOException $e){
-    //         echo $e->getMessage();
-    //     }
-    // }
+    function storeCate($title,$slug){
+        try{
+            global $pdo;
+            $sql = "INSERT INTO category(title,slug,create_at)VALUES(?,?,?)";
+            $stmt = $pdo->prepare($sql);
+            $create_at = date("Y-m-d H:i:s");
+            $stmt->execute([$title,$slug,$create_at]);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
     // function deletePost($id){
     //     try {
     //         global $pdo;

@@ -15,7 +15,7 @@
                     <label for="slug">英文標題</label>
                     <input type="text" class="form-control" name="slug">
                 </div>
-                <input type="submit" class="btn btn-primary" value="新增分類">
+                <input type="submit" class="btn btn-primary" value="新增分類" name="submit">
             </form>
         </div>
         <div class="col-4">
@@ -28,3 +28,11 @@
     </div>
 </div>
 <?php include("template/footer.php");?>
+<?php
+    if(isset($_POST["submit"])){
+        $title = $_POST["title"];
+        $slug = $_POST["slug"];
+        storeCate($title,$slug);
+        header("Location:category-list.php");
+    }
+?>
