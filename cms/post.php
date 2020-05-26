@@ -16,15 +16,17 @@
                 <?php echo $row["content"]?>
             </div>
             <div>
-                作者:<?php echo $row["user_id"];?>
+                作者:<?php echo $row["user"];?>
             </div>
             <div class="mb-3">
                 <div>建立時間<?php echo $row["create_at"];?></div>
                 <div>更新時間<?php echo $row["update_at"];?></div>
             </div>
             <a href="index.php" class="btn btn-primary btn-sm">回文章列表</a>
+            <?php if($row["user_id"] == $_SESSION["ID"]){ ?>
             <a href="edit-post.php?id=<?php echo $row["id"];?>" class="btn btn-success btn-sm">修改文章</a>
             <a href="delete-post.php?id=<?php echo $row["id"];?>" class="btn btn-danger btn-sm" onclick="return confirm('確認刪除?')">刪除文章</a>
+            <?php } ?>
         </div>
     </div>
 </div>

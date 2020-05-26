@@ -45,7 +45,11 @@
     function showPost($id){
         try {
             global $pdo;
-            $sql = "SELECT posts.*,category.title AS c_title,category.slug FROM posts LEFT JOIN category ON posts.cate_id = category.id  WHERE posts.id = ?";
+            $sql = "SELECT posts.*,category.title AS c_title,category.slug,members.user 
+                    FROM posts 
+                    LEFT JOIN category ON posts.cate_id = category.id  
+                    LEFT JOIN members ON posts.user_id = members.id  
+                    WHERE posts.id = ?";
             $stmt = $pdo->prepare($sql); 
             $stmt->execute([$id]);
             $row = $stmt->fetch();
