@@ -6,7 +6,7 @@
         $stmt->execute();
 
         $total = $stmt->rowCount();
-        $per = 4;
+        $per = 2;
         $pages = ceil($total / $per);
         /*
             ceil,round,floor
@@ -35,6 +35,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .active {
+            font-size: 1.5em;
+            color: red;
+        }
+    </style>
 </head>
 <body>
     共<?php echo $total;?>筆資料
@@ -45,18 +51,23 @@
         <h2><?php echo $r["title"];?></h2>
     <?php } ?>
     <?php if($page != 1){ ?>
-    <a href="index.php?page=1">第一頁</a>
-    <a href="index.php?page=<?php echo $page - 1;?>">上一頁</a>
+    <a href="<?php echo $_SERVER["PHP_SELF"];?>?page=1">第一頁</a>
+    <a href="<?php echo $_SERVER["PHP_SELF"];?>?page=<?php echo $page - 1;?>">上一頁</a>
     <?php } ?>
     <?php
         for($i=0;$i<$pages;$i++){
             $p = $i + 1;
-            echo "<a href='index.php?page={$p}'> {$p} </a>";
+            
+            if($p == $page){
+                echo "<span class='active'> {$p} </span>";
+            }else{
+                echo "<a href='{$_SERVER["PHP_SELF"]}?page={$p}'> {$p} </a>";
+            }
         }
     ?>
     <?php if($page != $pages){ ?>
-    <a href="index.php?page=<?php echo $page + 1;?>">下一頁</a>
-    <a href="index.php?page=<?php echo $pages; ?>">最末頁</a>
+    <a href="<?php echo $_SERVER["PHP_SELF"];?>?page=<?php echo $page + 1;?>">下一頁</a>
+    <a href="<?php echo $_SERVER["PHP_SELF"];?>?page=<?php echo $pages; ?>">最末頁</a>
     <?php }?>
 </body>
 </html>
