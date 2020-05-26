@@ -20,7 +20,7 @@
                 <a href="post.php?id=<?php echo $row["id"];?>">繼續閱讀</a>
             </div>
             <div>
-                作者:<?php echo $row["user_id"];?>
+                作者:<?php echo $row["user"];?>
             </div>
             <div class="mt-3">
                 發布時間: <?php echo $row["create_at"]; ?>
