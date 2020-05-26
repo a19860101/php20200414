@@ -41,7 +41,13 @@
     <?php foreach($rows as $r){?>
         <h2><?php echo $r["title"];?></h2>
     <?php } ?>
+    <?php if($page != 1){ ?>
+    <a href="index.php?page=1">第一頁</a>
     <a href="index.php?page=<?php echo $page - 1;?>">上一頁</a>
+    <?php } ?>
+    <?php if($page != $pages){ ?>
     <a href="index.php?page=<?php echo $page + 1;?>">下一頁</a>
+    <a href="index.php?page=<?php echo $pages; ?>">最末頁</a>
+    <?php }?>
 </body>
 </html>
