@@ -6,12 +6,25 @@
         $stmt->execute();
 
         $total = $stmt->rowCount();
-        $per = 3;
+        $per = 4;
         $pages = ceil($total / $per);
         /*
             ceil,round,floor
         */
-        $page = 1;
+        if(!isset($_GET["page"])){
+            $page = 1; //當前頁面
+        }else{
+            $page = $_GET["page"];
+        }
+        $start = ($page - 1) * $per;
+        $sql = "SELECT * FROM posts LIMIT {$start},{$per}";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+
+        $rows = array();
+        while($row=$stmt->fetch()){
+            $rows[] = $row;
+        }
     }catch(PDOException $e){
         echo $e->getMessage();
     }
@@ -24,7 +37,10 @@
     <title>Document</title>
 </head>
 <body>
-
+    共<?php echo $total;?>筆資料
+    <?php foreach($rows as $r){?>
+        <h2><?php echo $r["title"];?></h2>
+    <?php } ?>
     <a href="index.php?page=<?php echo $page - 1;?>">上一頁</a>
     <a href="index.php?page=<?php echo $page + 1;?>">下一頁</a>
 </body>
