@@ -14,7 +14,7 @@
                 分類:<?php echo $row["c_title"];?>
             </div>
             <div class="content">
-                <?php echo mb_substr($row["content"],0,120,"utf-8");?>...
+                <?php echo mb_substr(strip_tags($row["content"]),0,120,"utf-8");?>...
             </div>
             <div class="text-right">
                 <a href="post.php?id=<?php echo $row["id"];?>">繼續閱讀</a>
