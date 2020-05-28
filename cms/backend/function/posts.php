@@ -158,6 +158,7 @@
         }
         $next = $page+1;
         $prev = $page-1;
+        
         echo "<ul class='pagination'>";
        if($page != 1){
             echo "<li class='page-item'><a href='{$_SERVER["PHP_SELF"]}?page=1' class='page-link'>第一頁</a></li>";
@@ -167,7 +168,7 @@
             $p = $i + 1;
             
             if($p == $page){
-                echo "<li class='page-item active'><a href='#' class='page-link'> {$p} </span></li>";
+                echo "<li class='page-item active'><a href='#' class='page-link'> {$p} </a></li>";
             }else{
                 echo "<li class='page-item'><a href='{$_SERVER["PHP_SELF"]}?page={$p}' class='page-link'>{$p}</a></li>";
             }
