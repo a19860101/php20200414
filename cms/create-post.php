@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-12">
             <h2>新增文章</h2>
-            <form action="store-post.php" method="post">
+            <form action="store-post.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="title">文章標題</label>
                     <input type="text" name="title" id="title" class="form-control">
@@ -20,6 +20,10 @@
                         <option value="<?php echo $row_c["id"]?>"><?php echo $row_c["title"]?></option>
                     <?php } ?>
                     </select>
+                </div>
+                <div class="form-group">
+                    <label for="cover">封面圖片</label>
+                    <input type="file" name="cover" id="cover">
                 </div>
                 <input type="submit" value="新增文章" class="btn btn-primary">
                 <input type="button" value="取消" class="btn btn-danger" onclick="history.back()">

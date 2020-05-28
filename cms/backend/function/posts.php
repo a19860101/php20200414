@@ -58,15 +58,23 @@
             echo $e->getMessage();
         }
     }
-    function storePost($title,$content,$cate_id){
+    function storePost($title,$content,$cate_id,$cover,$tmp_name,$error){
         session_start();
         try{
             global $pdo;
             $sql = "INSERT INTO posts(title,content,cate_id,create_at,update_at,cover,user_id)VALUES(?,?,?,?,?,?,?)";
             $stmt = $pdo->prepare($sql);
             $create_at = date("Y-m-d H:i:s");
-            $cover = 0;
-            $stmt->execute([$title,$content,$cate_id,$create_at,$create_at,$cover,$_SESSION['ID']]);
+            $target = "images/{$cover}";
+            if($error == 0){
+                if(move_uploaded_file($tmp_name,$target)){
+                    $stmt->execute([$title,$content,$cate_id,$create_at,$create_at,$cover,$_SESSION['ID']]);
+                }else{
+                    echo "圖片上傳錯誤，請重新上傳";
+                }
+            }else{
+                echo "新增錯誤";
+            }
         }catch(PDOException $e){
             echo $e->getMessage();
         }
