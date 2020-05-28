@@ -12,6 +12,7 @@
             if($row["pw"] == $pw){
                 $_SESSION["USER"] = $user;
                 $_SESSION["ID"] = $row["id"];
+                $_SESSION["LEVEL"] = $row["level"];
                 header("Location:index.php");
             }else{
                 echo "帳號或密碼錯誤";
