@@ -30,5 +30,5 @@
         <?php } ?>
     </div>
 </div>
-
+<?php pager(2)?>
 <?php include("template/footer.php"); ?>

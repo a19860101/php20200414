@@ -143,13 +143,37 @@
             echo $e->getMessage();
         }
     }
-    function pager(){
+    function pager($per=3){
+        global $pdo;
+        $sql = "SELECT * FROM posts";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+
+        $total = $stmt->rowCount();
+        $pages = ceil($total / $per);
+        if(!isset($_GET["page"])){
+            $page = 1; //當前頁面
+        }else{
+            $page = $_GET["page"];
+        }
+        $next = $page+1;
+        $prev = $page-1;
+
        if($page != 1){
             echo "<a href='{$_SERVER["PHP_SELF"]}?page=1'>第一頁</a>";
-            echo "<a href='{$_SERVER["PHP_SELF"]}?page={$page-1}'>上一頁</a>";
+            echo "<a href='{$_SERVER["PHP_SELF"]}?page={$prev}'>上一頁</a>";
+        }
+        for($i=0;$i<$pages;$i++){
+            $p = $i + 1;
+            
+            if($p == $page){
+                echo "<span class='active'> {$p} </span>";
+            }else{
+                echo "<a href='{$_SERVER["PHP_SELF"]}?page={$p}'> {$p} </a>";
+            }
         }
        if($page != $pages){
-            echo "<a href='{$_SERVER["PHP_SELF"]}?page={$page+1}'>下一頁</a>";
+            echo "<a href='{$_SERVER["PHP_SELF"]}?page={$next}'>下一頁</a>";
             echo "<a href='{$_SERVER["PHP_SELF"]}?page={$pages}'>最末頁</a>";
         }
     }
