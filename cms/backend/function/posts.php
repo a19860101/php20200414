@@ -22,48 +22,6 @@
             echo $e->getMessage();
         }
     }
-    function showAllPostsWithPage($per=3,$order="DESC"){
-        try {
-            global $pdo;
-            $sql = "SELECT * FROM posts";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute();
-    
-            $total = $stmt->rowCount();
-            // $per = 2;
-            $pages = ceil($total / $per);
-            /*
-                ceil,round,floor
-            */
-            if(!isset($_GET["page"])){
-                $page = 1; //當前頁面
-            }else{
-                $page = $_GET["page"];
-            }
-            $start = ($page - 1) * $per;
-            // $sql = "SELECT * FROM posts LIMIT {$start},{$per}";
-            $sql = "SELECT posts.*,category.title AS c_title,category.slug,members.user 
-                    FROM posts 
-                    LEFT JOIN category 
-                    ON posts.cate_id = category.id 
-                    LEFT JOIN members
-                    ON posts.user_id = members.id
-                    ORDER BY id {$order}
-                    LIMIT {$start},{$per}
-                    ";
-
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute();
-    
-            $rows = array();
-            while($row=$stmt->fetch()){
-                $rows[] = $row;
-            }
-            return $rows;
-        }catch(PDOException $e){
-            echo $e->getMessage();
-        }
-    }
     function showAllCatePosts($cate_id,$order="DESC"){
         try {
             global $pdo;
@@ -142,4 +100,56 @@
             echo $e->getMessage();
         }
 
+    }
+    function showAllPostsWithPage($per=3,$order="DESC"){
+        try {
+            global $pdo;
+            $sql = "SELECT * FROM posts";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+    
+            $total = $stmt->rowCount();
+            // $per = 2;
+            $pages = ceil($total / $per);
+            /*
+                ceil,round,floor
+            */
+            if(!isset($_GET["page"])){
+                $page = 1; //當前頁面
+            }else{
+                $page = $_GET["page"];
+            }
+            $start = ($page - 1) * $per;
+            // $sql = "SELECT * FROM posts LIMIT {$start},{$per}";
+            $sql = "SELECT posts.*,category.title AS c_title,category.slug,members.user 
+                    FROM posts 
+                    LEFT JOIN category 
+                    ON posts.cate_id = category.id 
+                    LEFT JOIN members
+                    ON posts.user_id = members.id
+                    ORDER BY id {$order}
+                    LIMIT {$start},{$per}
+                    ";
+
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+    
+            $rows = array();
+            while($row=$stmt->fetch()){
+                $rows[] = $row;
+            }
+            return $rows;
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+    function pager(){
+       if($page != 1){
+            echo "<a href='{$_SERVER["PHP_SELF"]}?page=1'>第一頁</a>";
+            echo "<a href='{$_SERVER["PHP_SELF"]}?page={$page-1}'>上一頁</a>";
+        }
+       if($page != $pages){
+            echo "<a href='{$_SERVER["PHP_SELF"]}?page={$page+1}'>下一頁</a>";
+            echo "<a href='{$_SERVER["PHP_SELF"]}?page={$pages}'>最末頁</a>";
+        }
     }
