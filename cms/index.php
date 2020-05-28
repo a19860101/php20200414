@@ -1,7 +1,7 @@
 <?php 
     require_once("backend/pdo.php");
     include("backend/function/posts.php");
-    $rows = showAllPosts();
+    $rows = showAllPostsWithPage(3,"DESC");
 ?>
 <?php include("template/header.php"); ?>
 <?php include("template/nav.php"); ?>
@@ -28,6 +28,9 @@
             <hr>
         </div>
         <?php } ?>
+        <div class="col-8">
+        <?php echo pager(3); ?>
+        </div>
     </div>
 </div>
 

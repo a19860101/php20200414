@@ -158,22 +158,23 @@
         }
         $next = $page+1;
         $prev = $page-1;
-
+        echo "<ul class='pagination'>";
        if($page != 1){
-            echo "<a href='{$_SERVER["PHP_SELF"]}?page=1'>第一頁</a>";
-            echo "<a href='{$_SERVER["PHP_SELF"]}?page={$prev}'>上一頁</a>";
+            echo "<li class='page-item'><a href='{$_SERVER["PHP_SELF"]}?page=1' class='page-link'>第一頁</a></li>";
+            echo "<li class='page-item'><a href='{$_SERVER["PHP_SELF"]}?page={$prev}' class='page-link'>上一頁</a></li>";
         }
         for($i=0;$i<$pages;$i++){
             $p = $i + 1;
             
             if($p == $page){
-                echo "<span class='active'> {$p} </span>";
+                echo "<li class='page-item active'><a href='#' class='page-link'> {$p} </span></li>";
             }else{
-                echo "<a href='{$_SERVER["PHP_SELF"]}?page={$p}'> {$p} </a>";
+                echo "<li class='page-item'><a href='{$_SERVER["PHP_SELF"]}?page={$p}' class='page-link'>{$p}</a></li>";
             }
         }
        if($page != $pages){
-            echo "<a href='{$_SERVER["PHP_SELF"]}?page={$next}'>下一頁</a>";
-            echo "<a href='{$_SERVER["PHP_SELF"]}?page={$pages}'>最末頁</a>";
+            echo "<li class='page-item'><a href='{$_SERVER["PHP_SELF"]}?page={$next}' class='page-link'>下一頁</a></li>";
+            echo "<li class='page-item'><a href='{$_SERVER["PHP_SELF"]}?page={$pages}' class='page-link'>最末頁</a></li>";
         }
+        echo "</ul>";
     }
