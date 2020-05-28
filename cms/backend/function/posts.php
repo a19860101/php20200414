@@ -79,10 +79,13 @@
             echo $e->getMessage();
         }
     }
-    function deletePost($id){
+    function deletePost($id,$cover){
         try {
             global $pdo;
             $sql = "DELETE FROM posts WHERE id = ?";
+            if($cover!=0){
+                unlink("images/{$cover}");
+            }
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$id]);
         }catch(PDOException $e){

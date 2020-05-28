@@ -11,6 +11,15 @@
         <div class="col-8 py-2">
             <h3><?php echo $row["title"];?></h3>
             <div>
+                <?php 
+                    if($row["cover"] == 0){
+                        echo "<img src='https://picsum.photos/id/".rand(1,100)."/800/400' class='w-100'>";
+                    }else{
+                        echo "<img src='images/{$row["cover"]}' class='w-100'>";
+                    }
+                ?>
+            </div>
+            <div>
                 分類:<?php echo $row["c_title"];?>
             </div>
             <div class="content">

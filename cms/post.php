@@ -26,7 +26,7 @@
             <?php if($_SESSION){ ?>
             <?php if($row["user_id"] == $_SESSION["ID"]){ ?>
             <a href="edit-post.php?id=<?php echo $row["id"];?>" class="btn btn-success btn-sm">修改文章</a>
-            <a href="delete-post.php?id=<?php echo $row["id"];?>" class="btn btn-danger btn-sm" onclick="return confirm('確認刪除?')">刪除文章</a>
+            <a href="delete-post.php?id=<?php echo $row["id"];?>&cover=<?php echo $row["cover"];?>" class="btn btn-danger btn-sm" onclick="return confirm('確認刪除?')">刪除文章</a>
             <?php }} ?>
         </div>
     </div>
