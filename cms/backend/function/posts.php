@@ -93,7 +93,7 @@
             echo $e->getMessage();
         }
     }
-    function updatePost($title,$content,$cate_id,$id){
+    function updatePost($title,$content,$cate_id,$id,$cover,$tmp_name,$error,$filetype){
         try{
             global $pdo;
             $update_at = date("Y-m-d H:i:s");            
