@@ -68,8 +68,8 @@
             $target = "images/{$cover}";
             if($error == 0){
                 if(move_uploaded_file($tmp_name,$target)){
-                    img($filetype,$tmp_name,$cover);
                     $stmt->execute([$title,$content,$cate_id,$create_at,$create_at,$cover,$_SESSION['ID']]);
+                    img($filetype,$target,$cover);
                 }else{
                     echo "圖片上傳錯誤，請重新上傳";
                 }
@@ -191,9 +191,23 @@
         }
         echo "</ul>";
     }
-    function img($filetype,$tmp_name,$cover){
+    function img($filetype,$target,$cover){
         // $img = "images/001.jpg";
-        $canvas = imagecreatefromjpeg($tmp_name);
+        switch($filetype){
+            case "image/jpeg":
+                $canvas = imagecreatefromjpeg($target);
+                break;
+            case "image/png":
+                $canvas = imagecreatefrompng($target);
+                break;
+            case "image/gif":
+                $canvas = imagecreatefromgif($target);
+                break;
+            default:
+                echo "上傳錯誤，請使用正確的圖片檔案";
+                return;
+        }
+        
         $canvas_w = imagesx($canvas);
         $canvas_h = imagesy($canvas);
         $new_w = 800;

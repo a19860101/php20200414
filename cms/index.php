@@ -12,7 +12,7 @@
             <h3><?php echo $row["title"];?></h3>
             <div>
                 <?php 
-                    if($row["cover"] == 0){
+                    if($row["cover"] == ""){
                         echo "<img src='https://picsum.photos/id/".rand(1,100)."/800/400' class='w-100'>";
                     }else{
                         echo "<img src='images/{$row["cover"]}' class='w-100'>";

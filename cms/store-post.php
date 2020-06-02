@@ -22,6 +22,5 @@
     }
     $tmp_name = $_FILES["cover"]["tmp_name"];
     $error = $_FILES["cover"]["error"];
-
     storePost($title,$content,$cate_id,$cover,$tmp_name,$error,$filetype);
     header("Location:index.php");
