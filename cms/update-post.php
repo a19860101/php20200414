@@ -5,7 +5,6 @@
     $content = $_POST["content"];
     $cate_id = $_POST["cate_id"];
     $id = $_POST["id"];
-
     $filetype = $_FILES["cover"]["type"];
     switch($filetype){
         case "image/jpeg":
@@ -23,7 +22,7 @@
     }
     $tmp_name = $_FILES["cover"]["tmp_name"];
     $error = $_FILES["cover"]["error"];
-
+    
 
     updatePost($title,$content,$cate_id,$id,$cover,$tmp_name,$error,$filetype);
     // header("Location:edit-post.php?id={$id}");
