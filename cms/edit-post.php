@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-12">
             <h2>修改文章</h2>
-            <form action="update-post.php" method="post">
+            <form action="update-post.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="title">文章標題</label>
                     <input type="text" name="title" id="title" class="form-control" value="<?php echo $row["title"];?>">
@@ -27,6 +27,14 @@
                         </option>
                         <?php } ?>
                     </select>
+                </div>
+                <div>
+                    <?php if($row["cover"] == ""){ ?>
+                        <input type="file" name="cover">
+                    <?php }else{ ?>
+                        <img src="thumbs/<?php echo $row["cover"];?>" width="200">
+                        <a href="#" class="btn btn-danger btn-sm">刪除圖片</a>
+                    <?php } ?>
                 </div>
                 <input type="hidden" name="id" value="<?php echo $row["id"];?>">
                 <input type="submit" value="修改文章" class="btn btn-primary">
