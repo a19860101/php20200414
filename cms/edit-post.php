@@ -33,7 +33,7 @@
                         <input type="file" name="cover">
                     <?php }else{ ?>
                         <img src="thumbs/<?php echo $row["cover"];?>" width="200">
-                        <a href="#" class="btn btn-danger btn-sm">刪除圖片</a>
+                        <a href="del_img.php?id=<?php echo $row["id"];?>&cover=<?php echo $row["cover"];?>" class="btn btn-danger btn-sm" onclick="return confirm('確認刪除?')">刪除圖片</a>
                     <?php } ?>
                 </div>
                 <input type="hidden" name="id" value="<?php echo $row["id"];?>">
