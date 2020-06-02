@@ -58,7 +58,7 @@
             echo $e->getMessage();
         }
     }
-    function storePost($title,$content,$cate_id,$cover,$tmp_name,$error){
+    function storePost($title,$content,$cate_id,$cover,$tmp_name,$error,$filetype){
         session_start();
         try{
             global $pdo;
@@ -68,6 +68,7 @@
             $target = "images/{$cover}";
             if($error == 0){
                 if(move_uploaded_file($tmp_name,$target)){
+                    img($filetype,$tmp_name,$cover);
                     $stmt->execute([$title,$content,$cate_id,$create_at,$create_at,$cover,$_SESSION['ID']]);
                 }else{
                     echo "圖片上傳錯誤，請重新上傳";
@@ -189,4 +190,34 @@
             echo "<li class='page-item'><a href='{$_SERVER["PHP_SELF"]}?page={$pages}' class='page-link'>最末頁</a></li>";
         }
         echo "</ul>";
+    }
+    function img($filetype,$tmp_name,$cover){
+        // $img = "images/001.jpg";
+        $canvas = imagecreatefromjpeg($tmp_name);
+        $canvas_w = imagesx($canvas);
+        $canvas_h = imagesy($canvas);
+        $new_w = 800;
+        $new_h = $canvas_h / $canvas_w * 800;
+
+        $new_canvas = imagecreatetruecolor($new_w,$new_h);
+        imagecopyresampled($new_canvas,$canvas,0,0,0,0,$new_w,$new_h,$canvas_w,$canvas_h);
+
+        // $new_name = uniqid().".jpg";
+        switch($filetype){
+            case "image/jpeg":
+                imagejpeg($new_canvas,"thumbs/{$cover}");
+                break;
+            case "image/png":
+                imagepng($new_canvas,"thumbs/{$cover}");
+                break;
+            case "image/gif":
+                imagegif($new_canvas,"thumbs/{$cover}");
+                break;
+            default:
+                echo "上傳錯誤，請使用正確的圖片檔案";
+                return;
+        }
+        
+        imagedestroy($new_canvas);
+        imagedestroy($canvas);
     }
