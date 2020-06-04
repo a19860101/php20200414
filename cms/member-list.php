@@ -11,7 +11,7 @@
 ?>
 <?php include("template/header.php"); ?>
 <?php include("template/nav.php"); ?>
-<?php checkMember();?>
+<?php checkAdmin();?>
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-8">

@@ -5,7 +5,7 @@
 <?php include("template/nav.php");?>
 <?php
     include("backend/function/verify.php");
-    checkMember();
+    checkAdmin();
 ?>
 <div class="container py-5">
     <div class="row">
