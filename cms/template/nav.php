@@ -53,5 +53,9 @@
       </li>
     <?php } ?>
     </ul>
+    <form class="form-inline my-2 my-lg-0" action="search.php" method="get">
+      <input class="form-control mr-sm-2" type="search" placeholder="搜尋">
+      <input class="btn btn-outline-primary my-2 my-sm-0" type="submit" value="搜尋">
+    </form>
   </div>
 </nav>

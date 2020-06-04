@@ -247,3 +247,6 @@
         imagedestroy($new_canvas);
         imagedestroy($canvas);
     }
+    function search(){
+        
+    }
