@@ -11,7 +11,11 @@
     <div class="row justify-content-center">
         <div class="col-8">
             <?php foreach($rows as $row){ ?>
-            <h2><?php echo $row["title"];?></h2>
+            <h2>
+                <a href="post.php?id=<?php echo $row["id"];?>">
+                    <?php echo $row["title"];?>
+                </a>
+            </h2>
             <hr>
             <?php } ?>
         </div>

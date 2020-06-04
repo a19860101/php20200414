@@ -46,12 +46,12 @@
         <a class="nav-link" href="create-post.php">新增文章</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">會員專區</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="logout.php?logout=true">登出</a>
       </li>
     <?php } ?>
+    <li class="nav-item">
+      <a class="nav-link" href="contact.php">聯絡我們</a>
+    </li>
     </ul>
     <form class="form-inline my-2 my-lg-0" action="search.php" method="get">
       <input class="form-control mr-sm-2" type="search" placeholder="搜尋" name="search">
