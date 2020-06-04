@@ -3,7 +3,10 @@
 ?>
 <?php include("template/header.php");?>
 <?php include("template/nav.php");?>
-
+<?php
+    include("backend/function/verify.php");
+    checkMember();
+?>
 <div class="container py-5">
     <div class="row">
         <div class="col-8">

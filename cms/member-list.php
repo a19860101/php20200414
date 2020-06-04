@@ -1,15 +1,17 @@
 <?php
     require_once("backend/pdo.php");
     include("backend/function/member.php");
+    include("backend/function/verify.php");
     $rows = showAllMembers();
 
     if(isset($_GET["level"])){
         changeLevel($_GET["level"],$_GET["id"]);
         header("location:member-list.php");
-        }
+    }
 ?>
 <?php include("template/header.php"); ?>
 <?php include("template/nav.php"); ?>
+<?php checkMember();?>
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-8">
