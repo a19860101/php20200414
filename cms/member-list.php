@@ -2,6 +2,11 @@
     require_once("backend/pdo.php");
     include("backend/function/member.php");
     $rows = showAllMembers();
+
+    if(isset($_GET["level"])){
+        changeLevel($_GET["level"],$_GET["id"]);
+        header("location:member-list.php");
+        }
 ?>
 <?php include("template/header.php"); ?>
 <?php include("template/nav.php"); ?>
@@ -26,6 +31,7 @@
                         <?php }else{ ?>
                         一般會員
                         <?php } ?>
+                        <a href="?level=<?php echo $row["level"];?>&id=<?php echo $row["id"];?>" class="btn btn-primary btn-sm">切換權限</a>
                     </td>
                 </tr>
                 <?php } ?>
@@ -34,3 +40,6 @@
     </div>
 </div>
 <?php include("template/footer.php"); ?>
+<?php
+
+?>

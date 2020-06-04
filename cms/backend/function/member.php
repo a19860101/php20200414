@@ -71,3 +71,14 @@
             echo $e->getMessage();
         }
     }
+    function changeLevel($level,$id){
+        try {
+            global $pdo;
+            $sql = "UPDATE members SET level = ? WHERE id = ?";
+            $stmt = $pdo->prepare($sql);
+            $new_level = $level == 0 ? 1 : 0;
+            $stmt->execute([$new_level,$id]);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
