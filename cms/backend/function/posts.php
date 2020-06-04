@@ -247,6 +247,19 @@
         imagedestroy($new_canvas);
         imagedestroy($canvas);
     }
-    function search(){
-        
+    function search($search){
+        try {
+            global $pdo;
+            $sql = "SELECT * FROM posts WHERE title LIKE ? OR content LIKE ?";
+            $stmt = $pdo->prepare($sql);
+            $search = "%$search%";
+            $stmt->execute([$search,$search]);
+            $rows = array();
+            while($row = $stmt->fetch()){
+                $rows[] = $row;
+            }
+            return $rows;
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
     }
