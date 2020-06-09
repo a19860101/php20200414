@@ -3,7 +3,7 @@
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-8">
-            <form action="mail.php" method="post">
+            <form action="mailer.php" method="post">
                 <div class="form-group">
                     <label for="subject">主旨</label>
                     <input type="text" name="subject" id="subject" class="form-control">
