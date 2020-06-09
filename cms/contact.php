@@ -5,8 +5,12 @@
         <div class="col-8">
             <form action="mail.php" method="post">
                 <div class="form-group">
-                    <label for="title">主旨</label>
-                    <input type="text" name="title" id="title" class="form-control">
+                    <label for="subject">主旨</label>
+                    <input type="text" name="subject" id="subject" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="mail">Mail</label>
+                    <input type="text" name="mail" id="mail" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="content">內容</label>
