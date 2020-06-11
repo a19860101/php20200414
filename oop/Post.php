@@ -92,7 +92,7 @@ class Post extends DB {
             if($error == 0){
                 if(move_uploaded_file($tmp_name,$target)){
                     $stmt->execute([$title,$content,$cate_id,$cover,$update_at,$id]);
-                    img($filetype,$target,$cover);
+                    Post::img($filetype,$target,$cover);
                 }
             }
         }
