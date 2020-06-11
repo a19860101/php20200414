@@ -59,6 +59,18 @@ class Post extends DB {
             echo $e->getMessage();
         }
     }
+    function deletePost($id,$cover){
+        try {
+            $sql = "DELETE FROM posts WHERE id = ?";
+            if($cover!=0){
+                unlink("images/{$cover}");
+            }
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$id]);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
     static function img($filetype,$target,$cover){
         // $img = "images/001.jpg";
         switch($filetype){

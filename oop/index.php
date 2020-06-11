@@ -19,6 +19,7 @@
             <a href="detail.php?id=<?php echo $row["id"];?>">
                 <?php echo  $row["title"];?>
             </a>
+            <a href="delete.php?id=<?php echo $row["id"];?>&cover=<?php echo $row["cover"];?>" style="color:red" onclick="return confirm('確認刪除？')">刪除</a>
         </h2>
     </div>
     <?php } ?>
