@@ -1,3 +1,9 @@
+<?php 
+    include("pdo.php");
+    include("Category.php");
+    $cates = new Category;
+    $rows_c = $cates->showAllCate();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
