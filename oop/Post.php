@@ -38,15 +38,17 @@ class Post extends DB {
     function storePost($title,$content,$cate_id,$cover,$tmp_name,$error,$filetype){
         session_start();
         try{
-            global $pdo;
             $sql = "INSERT INTO posts(title,content,cate_id,create_at,update_at,cover,user_id)VALUES(?,?,?,?,?,?,?)";
-            $stmt = $pdo->prepare($sql);
+            $stmt = $this->connect()->prepare($sql);
             $create_at = date("Y-m-d H:i:s");
             $target = "images/{$cover}";
+            $user_id = 0;
+            //$_SESSION["ID"];
             if($error == 0){
                 if(move_uploaded_file($tmp_name,$target)){
-                    $stmt->execute([$title,$content,$cate_id,$create_at,$create_at,$cover,$_SESSION['ID']]);
-                    img($filetype,$target,$cover);
+                    $stmt->execute([$title,$content,$cate_id,$create_at,$create_at,$cover,$user_id]);
+                    // img($filetype,$target,$cover);
+                    Post::img($filetype,$target,$cover);
                 }else{
                     echo "圖片上傳錯誤，請重新上傳";
                 }
@@ -57,7 +59,7 @@ class Post extends DB {
             echo $e->getMessage();
         }
     }
-    function img($filetype,$target,$cover){
+    static function img($filetype,$target,$cover){
         // $img = "images/001.jpg";
         switch($filetype){
             case "image/jpeg":

@@ -1,6 +1,7 @@
 <?php
-    require_once("backend/pdo.php");
-    include("backend/function/posts.php");
+    include("pdo.php");
+    include("Post.php");
+
     $title = $_POST["title"];
     $content = $_POST["content"];
     $cate_id = $_POST["cate_id"];
@@ -22,5 +23,8 @@
     }
     $tmp_name = $_FILES["cover"]["tmp_name"];
     $error = $_FILES["cover"]["error"];
-    storePost($title,$content,$cate_id,$cover,$tmp_name,$error,$filetype);
-    header("Location:index.php");
+    $post = new Post;
+
+    $post->storePost($title,$content,$cate_id,$cover,$tmp_name,$error,$filetype);
+
+    // header("Location:index.php");
