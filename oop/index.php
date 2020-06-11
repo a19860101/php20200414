@@ -12,6 +12,7 @@
     <title>Document</title>
 </head>
 <body>
+    <a href="create.php">新增文章</a>
     <?php foreach($rows as $row){ ?>
     <div>
         <h2>
